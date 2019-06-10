@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {storeData} from "../actions";
+import {connect} from 'react-redux'
+import Display from "./Display";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+    componentDidMount() {
+        // @ts-ignore
+        this.props.storeData()
+    }
+
+    render() {
+        return <div><Display pasta={'fusilli'}/><Display pasta={'spaghetti'}/></div>
+
+    }
+
 }
 
-export default App;
+const mapDispatchToProps = (dispatch: any) => ({
+    storeData: () => {
+        console.log('about to');
+        dispatch(storeData())
+    },
+});
+
+export default connect(null, mapDispatchToProps)(App);

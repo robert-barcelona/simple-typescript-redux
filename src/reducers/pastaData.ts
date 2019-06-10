@@ -1,16 +1,25 @@
-import {storeDataAction, pastaActionTypes, UserData} from '../types'
+import {
+  STORE_DATA,
+    UserData,
+    PastaActionTypes,
+} from '../types'
 
-const pastaData = (state = [], action) => {
-  switch (action.type) {
-    case actionTypes.UPDATE_EVENTS:
-    case actionTypes.CLEAR_EVENTS:
-      const {payload:{events}} = action
-      if (!events) return state
-      return events
+const initialState:UserData[] = [];
 
-    default:
-      return state
-  }
+export default (state:UserData[] = initialState, action:PastaActionTypes):UserData[] =>  {
+    console.log('hihihi', action)
+
+
+    switch (action.type) {
+
+      case STORE_DATA:
+          return action.payload;
+
+      default:
+        return state;
+    }
 };
 
-export default events;
+
+
+
