@@ -11,7 +11,12 @@ class App extends React.Component {
     }
 
     render() {
-        return <div><Display pasta={'fusilli'}/><Display pasta={'spaghetti'}/></div>
+        return <div>
+            <Display pasta={'fusilli'}/>
+            <Display pasta={'spaghetti'}/>
+            <Display pasta={'farfalle'}/>
+            <Display pasta={'orecchiette'}/>
+        </div>
 
     }
 

@@ -10,7 +10,7 @@ interface OwnProps {
 const Display: React.FC<{ users: UserData[], pasta: string }> = ({users, pasta}) => (
     <div>
         <div>{pasta}</div>
-        <ul>  {users && users.map(user => <li>{user.name} {user.favorites[pasta]!}</li>)}</ul>
+        <ul>  {users && users.map(user => <li>{user.name} {user.gender} {user.favorites[pasta]!}</li>)}</ul>
 
     </div>
 

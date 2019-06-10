@@ -5,6 +5,7 @@ export interface PastaData {
 
 export interface UserData {
     name: string,
+    gender:string,
     favorites: PastaData
 }
 
