@@ -1,32 +1,19 @@
 import React from 'react';
 import {storeData} from "../actions";
-import {connect} from 'react-redux'
-import Display from "./Display";
+import Main from "./Main";
 
 class App extends React.Component {
 
-    componentDidMount() {
-        // @ts-ignore
-        this.props.storeData()
-    }
 
     render() {
-        return <div>
-            <Display pasta={'fusilli'}/>
-            <Display pasta={'spaghetti'}/>
-            <Display pasta={'farfalle'}/>
-            <Display pasta={'orecchiette'}/>
+        return <div className='app'>
+            <Main/>
         </div>
 
     }
 
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-    storeData: () => {
-        console.log('about to');
-        dispatch(storeData())
-    },
-});
 
-export default connect(null, mapDispatchToProps)(App);
+
+export default App;

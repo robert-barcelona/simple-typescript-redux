@@ -8,16 +8,30 @@ interface OwnProps {
 }
 
 const Display: React.FC<{ users: UserData[], pasta: string }> = ({users, pasta}) => (
-    <div>
-        <div>{pasta}</div>
-        <ul>  {users && users.map(user => <li>{user.name} {user.gender} {user.favorites[pasta]!}</li>)}</ul>
+    <div className='display-pastaDisplay'>
+        <div className='display-pastaDisplayTitle'>{pasta.toUpperCase()}</div>
+
+
+        <div className='display-userList'>
+            {users && users.map(user =>
+                <div className='display-userListItem'>
+                    <div className={user.gender === 'female' ? 'display-userListBullet female':'display-userListBullet male'}>&nbsp;</div>
+                    <div className='display-userListContainer'>
+
+                        <span className='display-userListName'>{user.name.split(' ')[0]}</span>
+                        <span
+                            className='display-userListNumber'>{user.favorites[pasta]!.toFixed(2)}</span
+                        ></div>
+                </div>
+            )}
+        </div>
 
     </div>
 
 );
 
 const mapStateToProps = (state: any, ownProps: OwnProps) => {
-    const users: UserData[] = getTopUsersByPasta(state,ownProps.pasta)
+    const users: UserData[] = getTopUsersByPasta(state, ownProps.pasta)
     return {
         users
     }

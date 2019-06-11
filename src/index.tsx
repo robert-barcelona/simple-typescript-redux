@@ -7,8 +7,13 @@ import App from './components/App';
 
 import {Provider} from 'react-redux';
 
+import 'normalize.css';
+
+
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from './reducers';
+
+import './styles/main.scss'
 
 
 const store = createStore(
