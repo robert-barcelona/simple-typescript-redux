@@ -13,10 +13,10 @@ class Main extends React.Component {
     render() {
         return <div className='main-container'>
             <div className='title-box'>PASTA FANS</div>
-            <Display pasta={'fusilli'}/>
-            <Display pasta={'spaghetti'}/>
-            <Display pasta={'farfalle'}/>
-            <Display pasta={'orecchiette'}/>
+            <div className='main-displayContainer'><Display pasta={'cavatappi'}/>
+                <Display pasta={'fusilli'}/>
+                <Display pasta={'farfalle'}/>
+                <Display pasta={'orecchiette'}/></div>
         </div>
 
     }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
 /* breakpoints */
-$breakpoint-tablet: 525px;
+$breakpoint-mobile: 525px;
 
 
 // font stuff
@@ -16,13 +16,11 @@ $breakpoint-tablet: 525px;
 }
 
 @mixin bgFill($image) {
-  background: url($image) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: 100%;
-  overflow: hidden;
+  margin: 0;
+  background: url($image) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 @mixin bullet($isRed) {
@@ -54,20 +52,23 @@ $breakpoint-tablet: 525px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
+html {
+  @include bgFill('../images/background.jpg');
+  padding-bottom: 20vh;
+}
 
-@media (max-width: $breakpoint-tablet) {
+.app {
+  box-sizing: border-box;
+  height: 100vh;
+}
 
-  .app {
-    box-sizing: border-box;
-    height: 100vh;
+@media (max-width: $breakpoint-mobile) {
 
-  }
 
   .main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include bgFill('../images/background.jpg');
 
     .title-box {
       box-sizing: border-box;
@@ -86,18 +87,22 @@ $breakpoint-tablet: 525px;
       justify-content: center;
     }
 
-    .display-pastaDisplay {
-      margin-top: 28px;
-      padding-top: 28px;
-      padding-bottom: 28px;
+    .main-displayContainer {
       display: flex;
-      align-items: center;
-
-      justify-content: center;
       flex-direction: column;
-      @include pastaDisplay(true);
-      width: 90%;
+      align-items: center;
+      width: 269px;
 
+      .display-pastaDisplay {
+        margin-top: 28px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+        display: flex;
+        align-items: center;
+
+        justify-content: center;
+        flex-direction: column;
+        @include pastaDisplay(true);
 
 
         .display-userListBullet {
@@ -148,6 +153,113 @@ $breakpoint-tablet: 525px;
 
           }
         }
+      }
+    }
+  }
+
+}
+
+
+@media (min-width: $breakpoint-mobile + 1) {
+
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .title-box {
+      box-sizing: border-box;
+      margin-top: 57px;
+      margin-bottom: 56px;
+      height: 77px;
+      width: 847px;
+      border: 3px solid rgba(255, 255, 255, 1);
+      color: rgba(255, 255, 255, 1);
+      @include latoBold;
+      font-size: 32px;
+      letter-spacing: 2px;
+      line-height: 39px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-displayContainer {
+
+
+      display: grid;
+      grid-template-columns: 380px 380px;
+      grid-template-rows: repeat(2, 294px);
+      grid-column-gap: 82px;
+      grid-row-gap: 40px;
+      justify-content: stretch;
+
+
+      .display-pastaDisplay {
+        margin-top: 28px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+        display: flex;
+        align-items: center;
+
+        justify-content: center;
+        flex-direction: column;
+        @include pastaDisplay(true);
+        width: 380px;
+
+
+        .display-userListBullet {
+          @include bullet(true);
+
+          &.female {
+            @include bullet(true)
+          }
+
+          &.male {
+            @include bullet(false)
+          }
+        }
+
+        .display-pastaDisplayTitle {
+          margin-bottom: 28px;
+          height: 22px;
+          width: 128px;
+          color: rgba(255, 255, 255, 1);
+          font-size: 18px;
+          letter-spacing: 2px;
+          line-height: 22px;
+          text-align: center;
+
+        }
+
+        .display-userList {
+          width: 90%;
+
+          .display-userListContainer {
+            display: inline-flex;
+            justify-content: space-between;
+            font-size: 16px;
+            letter-spacing: 0.6px;
+            line-height: 30px;
+            width: 90%;
+            margin-left: 5px;
+
+
+            .display-userListName {
+              display: inline-block;
+            }
+
+            .display-userListNumber {
+              display: inline-block;
+            }
+
+
+          }
+        }
+      }
     }
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {UserData} from "../types";
 import {getTopUsersByPasta} from "../selectors";
+import {capitalizeFirstLetter} from "../Utils";
 
 interface OwnProps {
     pasta: string;
@@ -9,7 +10,7 @@ interface OwnProps {
 
 const Display: React.FC<{ users: UserData[], pasta: string }> = ({users, pasta}) => (
     <div className='display-pastaDisplay'>
-        <div className='display-pastaDisplayTitle'>{pasta.toUpperCase()}</div>
+        <div className='display-pastaDisplayTitle'>{capitalizeFirstLetter(pasta)}</div>
 
 
         <div className='display-userList'>
