@@ -6,6 +6,11 @@
 2. Start the application: `yarn start`
 3. Application is served from development server at `localhost:3000`
 
+
+### Testing
+
+1. To test the app: `yarn test`
+
 ### Considerations
 
 1. Architecture: I tried to make this application as similar as possible to a React/Redux application.  The data is loaded from a static file, but I tried to emulate the architecture I would use if it were loaded from an API call.  I didn't make the data loading method `async` in this case, as the data is already loaded, but of course with a real API call it would be. 
