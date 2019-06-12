@@ -1,44 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pasta Favorites App
 
-## Available Scripts
+### To run the app
 
-In the project directory, you can run:
+1. Load node modules: `yarn` 
+2. Start the application: `yarn start`
+3. Application is served from development server at `localhost:3000`
 
-### `npm start`
+### Considerations
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Architecture: I tried to make this application as similar as possible to a React/Redux application.  The data is loaded from a static file, but I tried to emulate the architecture I would use if it were loaded from an API call.  I didn't make the data loading method `async` in this case, as the data is already loaded, but of course with a real API call it would be. 
+2. State Management: I used Redux for state management as it's an elegant solution and reduces the JSX to more or less layout alone.  I used Redux-thunk to manage data loading, although generally I would use Redux-saga (Redux-thunk seemed simpler to use here).
+3. Language: I wrote the application -- as much as I could -- in TypeScript, because I wanted to learn TypeScript (I come from a background in typed languages and appreciate them).   I went well beyond the 3-4 hours slated for this app because of the fact that I've never used TypeScript before (this is my first application written in TypeScript), nor have I integrated it with React, and so some areas took extra time and research.  The app is still partly JavaScript, and there is some over-use of `any`, but I've used TypeScript as much as I could..
+4. Testing: I had problems with testing the app, particularly because I couldn't figure out how to make the testing platform I'm familiar with -- Jasmine -- nor one I tried to learn -- Ava -- work with TypeScript.  Specifically, I ran into issues with `ts-node`, which seems to be required for converting `.ts` files into `.js` files 'on the fly', had problems with the ES-6 'import' statements I used.  My intention was to restrict testing to the `logic` and perhaps `redux` elements of the application, but I couldn't get past the issues I encountered with TypeScript and testing, so I have put that on hold for the moment. If I can resolve it, I will add testing to the app.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

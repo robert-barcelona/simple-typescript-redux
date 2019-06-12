@@ -9,6 +9,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.0.9",
     "ava": "^2.1.0",
+    "jasmine-ts": "^0.3.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
@@ -50,8 +51,6 @@
   "repository": "https://github.com/robert-barcelona/simple-typescript-redux.git",
   "author": "robert-barcelona <robertanthony.bcn@gmail.com>",
   "license": "MIT",
-
-
   "ava": {
     "compileEnhancements": false,
     "extensions": [
